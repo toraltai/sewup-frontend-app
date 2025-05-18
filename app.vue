@@ -5,5 +5,5 @@ useHead({htmlAttrs: {class: 'scroll-smooth'}})
 <template>
   <NuxtLayout />
   <Category />
-  <!-- <div id="about" class="flex bg-center bg-blue-700" style="height: 100px;">О нас</div> -->
+  <div id="about" class="flex bg-center" style="height: 100px;"></div>
 </template>
