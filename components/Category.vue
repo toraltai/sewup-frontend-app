@@ -1,51 +1,16 @@
-<script setup></script>
+<script setup>
+const { data, error, status } = useFetch('http://localhost:8000/list',{
+    method: 'GET',
+});
+const todos = computed(() => data.value.todos)
+</script>
+
 <template>
     <div class="flex justify-center">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">    
-        <div class="card bg-base-100 w-96 shadow-sm">
-            <figure>
-                <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-            </div>
-        </div>
-        <div class="card bg-base-100 w-96 shadow-sm">
-            <figure>
-                <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-            </div>
-        </div>
-        <div class="card bg-base-100 w-96 shadow-sm">
-            <figure>
-                <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-            </div>
-        </div>
-        <div class="card bg-base-100 w-96 shadow-sm">
-            <figure>
-                <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-            </div>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        <article class="card" v-for="todo in todos" :key="todo.id">
+            <h1>{{ todo.name }}</h1>
+        </article>
     </div>
     </div>
 </template>
